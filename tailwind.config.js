@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        nayanika: ['Nayanika', 'sans-serif', ...defaultTheme.fontFamily.sans],
+        montserrat: ['montserrat', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         netflix: {
