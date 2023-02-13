@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable no-param-reassign */
@@ -25,7 +26,6 @@ function Home() {
 
   const [email, setEmail] = useState('');
   const [valid, setValid] = useState(false);
-  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
     if (email) {
@@ -46,10 +46,6 @@ function Home() {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-  };
-
-  const handleDropDown = () => {
-    setOpen(!isOpen);
   };
 
   return (
@@ -178,29 +174,39 @@ function Home() {
         <div className="flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-8 pb-12">
           <ul className="w-full flex flex-col justify-center items-center lg:items-start space-y-4 md:space-y-6">
             {
-              faqs.map((faq) => (
-                <li key={faq.id} className="w-full">
-                  <button type="button" className="w-full text-white bg-[#2f2f2f] hover:bg-[#444444] focus:ring-none px-8 py-8 text-center inline-flex justify-between items-center" onClick={handleDropDown}>
-                    <div className="flex flex-col justify-center items-center lg:items-start space-y-4 md:space-y-6">
-                      <h2 className="text-xl md:text-2xl text-white">{faq.question}</h2>
-                    </div>
-                    <FontAwesomeIcon icon={faPlus} className="text-xl sm:text-3xl " />
-                  </button>
-                  <div
-                    id="dropdown"
-                    className={`z-10 w-full divide-y bg-[#2f2f2f] ${isOpen ? 'block' : 'hidden'
-                    }`}
-                  >
-                    <ul className=" z-10 bg-[#2f2f2f] shadow border-t border-netflix-black">
-                      <li>
-                        <div className="flex flex-col py-6 px-8">
-                          <p className="text-xl md:text-2xl text-netflix-white">{faq.answer}</p>
+              faqs.map((faq) => {
+                const [open, setOpen] = useState(false);
+                const handleDropDown = () => {
+                  setOpen(!open);
+                };
+
+                return (
+                  <li key={faq.id} className="w-full">
+                    <button type="button" className="w-full text-white bg-[#2f2f2f] hover:bg-[#444444] focus:ring-none px-8 py-8 text-center inline-flex justify-between items-center" onClick={handleDropDown}>
+                      <div className="flex flex-col justify-center items-center lg:items-start space-y-4 md:space-y-6">
+                        <h2 className="text-xl md:text-2xl text-white">{faq.question}</h2>
+                      </div>
+                      <FontAwesomeIcon icon={faPlus} className="text-xl sm:text-3xl " />
+                    </button>
+                    {
+                      open && (
+                        <div
+                          id="dropdown"
+                          className="z-10 w-full divide-y bg-[#2f2f2f]"
+                        >
+                          <ul className=" z-10 bg-[#2f2f2f] shadow border-t border-netflix-black">
+                            <li>
+                              <div className="flex flex-col py-6 px-8">
+                                <p className="text-xl md:text-2xl text-netflix-white">{faq.answer}</p>
+                              </div>
+                            </li>
+                          </ul>
                         </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-              ))
+                      )
+                    }
+                  </li>
+                );
+              })
             }
           </ul>
         </div>
