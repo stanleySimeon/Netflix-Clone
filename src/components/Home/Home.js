@@ -73,7 +73,7 @@ function Home() {
             <Link to="/login" className="whitespace-nowrap ml-3 px-3 md:px-4 py-1 md:py-2 text-netflix-white font-medium bg-netflix-red hover:bg-netflix-redDark rounded">Sign In</Link>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center flex-col h-full space-y-4 lg:space-y-8 md:pb-52">
+        <div className="w-full flex justify-center items-center flex-col h-full lg:pt-12 space-y-4 lg:space-y-8 md:pb-52">
           <h1 className="text-3xl lg:text-5xl text-white text-center font-bold lg:font-extrabold">Unlimited movies, TV shows, and more.</h1>
           <p className="text-lg lg:text-2xl text-white text-center font-normal">Watch anywhere. Cancel anytime.</p>
           <form className="w-10/12 sm:w-11/12 flex flex-col lg:w-8/12 justify-center items-center space-y-3 pb-8" action="" method="" autoComplete="off" noValidate>
