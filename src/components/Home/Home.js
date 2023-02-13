@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faChevronRight, faGlobe, faPlus, faClose,
+  faChevronRight, faGlobe, faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import faqs from './Data';
