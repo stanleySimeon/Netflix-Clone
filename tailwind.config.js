@@ -5,9 +5,13 @@ module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    borderWidth: {
+      DEFAULT: '1px',
+      zero: '0.625rem',
+    },
     extend: {
       fontFamily: {
-        montserrat: ['montserrat', ...defaultTheme.fontFamily.sans],
+        helvetica: ['Helvetica Neue', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         netflix: {
