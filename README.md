@@ -31,7 +31,7 @@
 
 # 📖 NETFLIX CLONE <a name="about-project"></a>
 
-**[NETFLIX CLONE]** is a web app built with React JS and Ruby on Rails offers a user-friendly streaming platform that resembles the original Netflix. It features a catalog of movies and TV shows, user authentication, intuitive search options, video streaming, and playback controls. The backend server provides support, the frontend renders the UI, and the database stores user data and content catalog information.
+**NETFLIX CLONE** is a web app built with React JS and Ruby on Rails offers a user-friendly streaming platform that resembles the original Netflix. It features a catalog of movies and TV shows, user authentication, intuitive search options, video streaming, and playback controls. The backend server provides support, the frontend renders the UI, and the database stores user data and content catalog information.
 
 ## 🛠 Built With <a name="built-with"></a>
 
