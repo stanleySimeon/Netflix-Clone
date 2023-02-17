@@ -58,7 +58,7 @@ function Home() {
               <img src={NetflixLogo} alt="Netflix Logo" className="w-44 object-cover" />
             </Link>
           </div>
-          <div className="flex justify-between items-center px-2">
+          <div className="flex justify-between items-center px-2 space-x-6">
             <span className="flex justify-center items-center pl-4 bg-netflix-black bg-opacity-40 border rounded">
               <FontAwesomeIcon icon={faGlobe} className="text-netflix-white" />
               <select
