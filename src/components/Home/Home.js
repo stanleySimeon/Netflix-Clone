@@ -70,7 +70,7 @@ function Home() {
                 <option value="Español">Español</option>
               </select>
             </span>
-            <Link to="/login" className="whitespace-nowrap ml-3 px-3 md:px-4 py-1 md:py-2 text-netflix-white font-medium bg-netflix-red hover:bg-netflix-redDark rounded">Sign In</Link>
+            <Link to="/login" className="whitespace-nowrap ml-3 px-3 md:px-6 py-1 md:py-2 text-netflix-white font-medium bg-netflix-red hover:bg-netflix-redDark rounded">Sign In</Link>
           </div>
         </div>
         <div className="w-full flex justify-center items-center flex-col h-full lg:pt-12 space-y-4 lg:space-y-8 md:pb-52">
