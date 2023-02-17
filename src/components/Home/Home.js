@@ -55,7 +55,7 @@ function Home() {
         <div className="flex justify-between items-center py-4">
           <div className="w-48">
             <Link to="/">
-              <img src={NetflixLogo} alt="Netflix Logo" className="w-44 object-cover" />
+              <img src={NetflixLogo} alt="Netflix Logo" className="w-44 lg:w-52 object-cover" />
             </Link>
           </div>
           <div className="flex justify-between items-center px-2 space-x-6">
@@ -73,19 +73,19 @@ function Home() {
             <Link to="/login" className="whitespace-nowrap ml-3 px-3 md:px-6 py-1 md:py-2 text-netflix-white font-medium bg-netflix-red hover:bg-netflix-redDark rounded">Sign In</Link>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center flex-col h-full lg:pt-12 space-y-4 lg:space-y-8 md:pb-52">
+        <div className="w-full flex justify-center items-center flex-col h-full lg:pt-20 space-y-4 lg:space-y-8 md:pb-52">
           <h1 className="text-3xl lg:text-5xl text-white text-center font-bold lg:font-extrabold">Unlimited movies, TV shows, and more.</h1>
           <p className="text-lg lg:text-2xl text-white text-center font-normal">Watch anywhere. Cancel anytime.</p>
           <form className="w-10/12 sm:w-11/12 flex flex-col lg:w-8/12 justify-center items-center space-y-3 pb-8" action="" method="" autoComplete="off" noValidate>
             <p className="text-lg lg:text-xl text-white text-center font-normal">Ready to watch? Enter your email to create or restart your membership.</p>
             <div className="w-full lg:w-9/12">
-              <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2">
-                <input type="email" name="email" id="email" placeholder="Email address" required="required" className="w-full px-3 py-3 rounded bg-netflix-white border-transparent outline-none focus:border-transparent transition-all duration-300" value={email} onChange={handleEmailChange} />
+              <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0">
+                <input type="email" name="email" id="email" placeholder="Email address" required="required" className="w-full px-3 py-4 rounded-l bg-netflix-white border-transparent outline-none focus:border-transparent transition-all duration-300" value={email} onChange={handleEmailChange} />
                 <span className="md:hidden text-netflix-red text-sm font-medium">
                   {email && !valid ? <FontAwesomeIcon icon={faCircleXmark} className="mr-1" /> : ''}
                   {email && !valid ? 'Please enter a valid email address' : ''}
                 </span>
-                <button type="submit" className="w-auto px-3 md:px-6 py-3 rounded bg-netflix-red border border-netflix-red hover:border-netflix-redDark text-netflix-white whitespace-nowrap font-medium md:font-bold hover:bg-netflix-redDark cursor-pointer" disabled={!valid}>
+                <button type="submit" className="w-auto px-3 md:px-6 py-4 rounded-r bg-netflix-red border border-netflix-red hover:border-netflix-redDark text-netflix-white whitespace-nowrap font-medium md:font-bold hover:bg-netflix-redDark cursor-pointer" disabled={!valid}>
                   Get Started
                   <FontAwesomeIcon icon={faChevronRight} className="ml-1" />
                 </button>
@@ -214,13 +214,13 @@ function Home() {
           <form className="w-10/12 sm:w-11/12 flex flex-col lg:w-8/12 justify-center items-center space-y-3 pb-8" action="" method="" autoComplete="off" noValidate>
             <p className="text-lg lg:text-xl text-white text-center font-normal">Ready to watch? Enter your email to create or restart your membership.</p>
             <div className="w-full lg:w-9/12">
-              <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2">
-                <input type="email" name="email" id="email" placeholder="Email address" required="required" className="w-full px-3 py-3 rounded bg-netflix-white border-transparent outline-none focus:border-transparent transition-all duration-300" value={email} onChange={handleEmailChange} />
+              <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0">
+                <input type="email" name="email" id="email" placeholder="Email address" required="required" className="w-full px-3 py-4 rounded-l bg-netflix-white border-transparent outline-none focus:border-transparent transition-all duration-300" value={email} onChange={handleEmailChange} />
                 <span className="md:hidden text-netflix-red text-sm font-medium">
                   {email && !valid ? <FontAwesomeIcon icon={faCircleXmark} className="mr-1" /> : ''}
                   {email && !valid ? 'Please enter a valid email address' : ''}
                 </span>
-                <button type="submit" className="w-auto px-3 md:px-6 py-3 rounded bg-netflix-red border border-netflix-red hover:border-netflix-redDark text-netflix-white whitespace-nowrap font-medium md:font-bold hover:bg-netflix-redDark cursor-pointer" disabled={!valid}>
+                <button type="submit" className="w-auto px-3 md:px-6 py-4 rounded-r bg-netflix-red border border-netflix-red hover:border-netflix-redDark text-netflix-white whitespace-nowrap font-medium md:font-bold hover:bg-netflix-redDark cursor-pointer" disabled={!valid}>
                   Get Started
                   <FontAwesomeIcon icon={faChevronRight} className="ml-1" />
                 </button>
