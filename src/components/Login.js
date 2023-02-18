@@ -7,6 +7,18 @@ import NetflixLogo from '../assets/01_Netflix_Logo/01_Netflix_Logo_RGB/Netflix_L
 import popSignup from '../assets/images/pop_signup.AVIF';
 
 export default function Login() {
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+
+    const password = document.querySelector('.password');
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
+  };
   return (
     <div className="login w-full h-screen relative font-helvetica">
       <img className="hidden md:block w-full h-screen object-cover" src={popSignup} alt="Netflix Background" />
@@ -18,7 +30,14 @@ export default function Login() {
           <h1 className="text-4xl lg:text-4xl font-medium text-white">Sign In</h1>
           <form className="flex flex-col py-8 space-y-4">
             <input type="email" name="email" id="email" placeholder="Email or phone number" className="bg-[#333333] text-white py-4 px-4 rounded-md focus:outline-none outline-none" />
-            <input type="password" name="password" id="password" placeholder="Password" className="bg-[#333333] text-white py-4 px-4 mb-4 rounded-md focus:outline-none outline-none" />
+            <span className="flex justify-between items-center">
+              <input type="password" name="password" id="password" placeholder="Password" className="password w-full bg-[#333333] text-white py-4 px-4 rounded-l-md focus:outline-none border-none outline-none" />
+              <button type="button" className="show-password text-gray-400 bg-[#333333] py-4 px-4 rounded-r-md" onClick={handleShowPassword}>
+                {
+                  showPassword ? 'Hide' : 'Show'
+                }
+              </button>
+            </span>
             <span className="pt-6">
               <button type="submit" className="w-full bg-netflix-red text-white py-4 px-4 rounded-md focus:outline-none">Sign In</button>
             </span>
