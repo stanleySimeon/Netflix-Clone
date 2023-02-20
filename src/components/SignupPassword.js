@@ -108,11 +108,10 @@ export default function SignupPassword() {
           <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Corporate Information</Link>
           <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Contact Us</Link>
         </div>
-        <p className="text-gray-500 text-sm font-light mt-4">
-          Netflix
-          {' '}
-          <span className="font-medium text-gray-800">Nigeria</span>
-        </p>
+        <select name="language" id="language" className="w-32 mt-4 border border-gray-500 py-2 px-3 rounded-md focus:outline-none focus:ring-0">
+          <option value="English">English</option>
+          <option value="French">Spanish</option>
+        </select>
       </footer>
     </div>
   );
