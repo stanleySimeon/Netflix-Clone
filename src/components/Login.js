@@ -19,20 +19,21 @@ export default function Login() {
       password.type = 'password';
     }
   };
+
   return (
-    <div className="login w-full h-screen relative font-helvetica">
-      <img className="hidden md:block w-full h-screen object-cover" src={popSignup} alt="Netflix Background" />
-      <div className="md:absolute h-auto top-0 left-0 right-0 w-full md:bg-gradient-to-b from-[rgba(26,26,26,0.71)] via-[rgba(0,0,0,0.61)] to-[rgba(27,27,27,0.93)] pb-0 lg:px-12">
+    <div className="login w-full h-full relative font-helvetica">
+      <img className="hidden md:flex w-full h-full object-cover" src={popSignup} alt="Netflix Background" />
+      <div className="md:absolute top-0 left-0 right-0 z-20 w-full h-full md:bg-gradient-to-b from-[rgba(26,26,26,0.71)] via-[rgba(0,0,0,0.61)] to-[rgba(20,20,20,0.84)] md:pb-16 lg:px-12">
         <Link to="/" className="block bg-black md:bg-transparent">
           <img src={NetflixLogo} alt="Netflix Logo" className="w-28 pt-4 md:pt-0 lg:w-52 object-cover " />
         </Link>
-        <div className="w-full md:max-w-lg md:mx-auto md:mt-10 bg-[#000000] md:bg-opacity-70 md:rounded-md py-8 md:py-16 px-4 md:px-16">
+        <div className="w-full md:max-w-lg md:mx-auto md:mt-10 bg-[#000000] md:bg-opacity-70 md:rounded-md py-8 px-4 md:px-16">
           <h1 className="text-4xl lg:text-4xl font-medium text-white">Sign In</h1>
           <form className="flex flex-col py-8 space-y-4">
             <input type="email" name="email" id="email" placeholder="Email or phone number" className="bg-[#333333] text-white py-4 px-4 rounded-md focus:outline-none outline-none" />
             <span className="flex justify-between items-center">
               <input type="password" name="password" id="password" placeholder="Password" className="password w-full bg-[#333333] text-white py-4 px-4 rounded-l-md focus:outline-none border-none outline-none" />
-              <button type="button" className="show-password text-gray-400 bg-[#333333] py-4 px-4 rounded-r-md" onClick={handleShowPassword}>
+              <button type="button" className="show-password w-24 text-center text-gray-400 bg-[#333333] py-4 rounded-r-md" onClick={handleShowPassword}>
                 {
                   showPassword ? 'Hide' : 'Show'
                 }
@@ -57,35 +58,35 @@ export default function Login() {
             <p className="text-md text-gray-400">
               This page is protected by Google reCAPTCHA to ensure you&apos;re not a bot.
               {' '}
-              <span className="hover:underline text-blue-500 cursor-pointer">Learn more.</span>
+              <span className="hover:underline text-blue-600 cursor-pointer">Learn more.</span>
             </p>
           </div>
         </div>
-        <div className="bar w-full border-b border border-[#262626] md:hidden" />
-        <footer className="w-full absolute left-0 right-0 z-10 bg-black md:bg-opacity-75 py-4 sm:pt-12 px-3 sm:px-8 lg:px-24 xl:px-36 2xl:px-48 text-gray-400">
-          <div data-style="heading" className="pb-4 text-lg">
-            Questions? Call
-            {' '}
-            <a href="tel: 1 (408) 329-9526  (USA)"> 1 (408) 329-9526  (USA)</a>
-          </div>
-          <div className="w-full">
-            <ul className="whitespace-nowrap grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-sm">
-              <li className=""><a role="link" data-uia="footer-link" title="FAQ" className="hover:underline" href="https://help.netflix.com/support/412">FAQ</a></li>
-              <li className=""><a role="link" data-uia="footer-link" title="Help Center" className="hover:underline" href="https://help.netflix.com">Help Center</a></li>
-              <li className=""><a role="link" data-uia="footer-link" title="Terms of Use" className="hover:underline" href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
-              <li className=""><a role="link" data-uia="footer-link" title="Privacy" className="hover:underline" href="https://help.netflix.com/legal/privacy">Privacy</a></li>
-              <li className=""><a role="link" data-uia="footer-link" title="Cookie Preferences" className="hover:underline" href="#">Cookie Preferences</a></li>
-              <li className=""><a role="link" data-uia="footer-link" title="Corporate Information" className="hover:underline" href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
-            </ul>
-          </div>
-          <div className="py-12">
-            <select id="" name="LanguageSelect" className="bg-netflix-black bg-opacity-50 text-netflix-white rounded">
-              <option lang="en" label="English" value="en">English</option>
-              <option lang="es" label="Español" value="es">Español</option>
-            </select>
-          </div>
-        </footer>
       </div>
+      <div className="bar w-full border-b border border-[#262626] md:hidden" />
+      <footer className="w-full absolute z-20 bg-black sm:pt-12 px-3 sm:px-8 lg:px-24 xl:px-36 2xl:px-48 text-gray-400">
+        <div data-style="heading" className="pb-4 text-lg">
+          Questions? Call
+          {' '}
+          <a href="tel: 1 (408) 329-9526  (USA)"> 1 (408) 329-9526  (USA)</a>
+        </div>
+        <div className="w-full">
+          <ul className="whitespace-nowrap grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-sm">
+            <li className=""><a role="link" data-uia="footer-link" title="FAQ" className="hover:underline" href="https://help.netflix.com/support/412">FAQ</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Help Center" className="hover:underline" href="https://help.netflix.com">Help Center</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Terms of Use" className="hover:underline" href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Privacy" className="hover:underline" href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Cookie Preferences" className="hover:underline" href="#">Cookie Preferences</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Corporate Information" className="hover:underline" href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+          </ul>
+        </div>
+        <div className="py-12">
+          <select id="" name="LanguageSelect" className="bg-netflix-black bg-opacity-50 text-netflix-white rounded">
+            <option lang="en" label="English" value="en">English</option>
+            <option lang="es" label="Español" value="es">Español</option>
+          </select>
+        </div>
+      </footer>
     </div>
   );
 }

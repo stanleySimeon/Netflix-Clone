@@ -6,14 +6,14 @@ const initialState = {
   user: null,
 };
 
-export const userSignup = (user) => ({
+export const userSignup = (email, password) => ({
   type: USER_SIGNUP,
-  payload: user,
+  payload: { email, password },
 });
 
-export const userLogin = (user) => ({
+export const userLogin = (email, password) => ({
   type: USER_LOGIN,
-  payload: user,
+  payload: { email, password },
 });
 
 export const userLogout = () => ({
@@ -23,9 +23,9 @@ export const userLogout = () => ({
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_SIGNUP:
-      return { ...state, user: action.payload };
+      return { ...state, email: action.payload.email, password: action.payload.password };
     case USER_LOGIN:
-      return { ...state, user: action.payload };
+      return { ...state, email: action.payload.email, password: action.payload.password };
     case USER_LOGOUT:
       return { ...state, user: null };
     default:
