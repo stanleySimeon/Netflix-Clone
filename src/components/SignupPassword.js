@@ -75,7 +75,7 @@ export default function SignupPassword() {
                   {getUserEmail}
                 </span>
               </label>
-              <input type="password" name="password" id="password" placeholder="Enter your password" className="w-full border border-gray-500 py-4 px-3 mt-2 focus:outline-none rounded-sm focus:ring-0 focus:ring-opacity-0" />
+              <input type="password" name="password" id="password" placeholder="Enter your password" required className="w-full border border-gray-500 py-4 px-3 mt-2 focus:outline-none rounded-sm focus:ring-0 focus:ring-opacity-0" />
             </div>
             <Link to="/signup" className="text-lg font-light text-blue-600 hover:underline">Forgot your password?</Link>
             <button
@@ -93,6 +93,27 @@ export default function SignupPassword() {
           </form>
         </div>
       </div>
+      <footer className="flex flex-col items-center justify-center border-t border-gray-500 py-4 px-2 md:px-12">
+        <p className="text-gray-500 text-sm font-light">
+          Questions? Call
+          {' '}
+          <span className="font-medium text-gray-800">0800-080-080</span>
+        </p>
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 mt-4">
+          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">FAQ</Link>
+          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Help Center</Link>
+          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Terms of Use</Link>
+          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Privacy</Link>
+          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Cookie Preferences</Link>
+          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Corporate Information</Link>
+          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Contact Us</Link>
+        </div>
+        <p className="text-gray-500 text-sm font-light mt-4">
+          Netflix
+          {' '}
+          <span className="font-medium text-gray-800">Nigeria</span>
+        </p>
+      </footer>
     </div>
   );
 }
