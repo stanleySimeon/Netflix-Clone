@@ -26,6 +26,7 @@ function Home() {
 
   const [email, setEmail] = useState('');
   const [valid, setValid] = useState(false);
+  const [saveUserEmail, setSaveUserEmail] = React.useState([]);
 
   useEffect(() => {
     if (email) {
@@ -46,6 +47,19 @@ function Home() {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('email', JSON.stringify(saveUserEmail));
+  }, [saveUserEmail]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (email) {
+      setSaveUserEmail([...saveUserEmail, email]);
+      setEmail('');
+      window.location.href = '/signup';
+    }
   };
 
   return (
@@ -85,10 +99,10 @@ function Home() {
                   {email && !valid ? <FontAwesomeIcon icon={faCircleXmark} className="mr-1" /> : ''}
                   {email && !valid ? 'Please enter a valid email address' : ''}
                 </span>
-                <button type="submit" className="w-auto px-3 md:px-6 py-4 rounded-r bg-netflix-red border border-netflix-red hover:border-netflix-redDark text-netflix-white whitespace-nowrap font-medium md:font-bold hover:bg-netflix-redDark cursor-pointer" disabled={!valid}>
+                <Link to="/signup" className="w-auto px-3 md:px-6 py-4 rounded-r bg-netflix-red border border-netflix-red hover:border-netflix-redDark text-netflix-white whitespace-nowrap font-medium md:font-bold hover:bg-netflix-redDark cursor-pointer" disabled={!valid} onClick={handleSubmit}>
                   Get Started
                   <FontAwesomeIcon icon={faChevronRight} className="ml-1" />
-                </button>
+                </Link>
               </div>
               <span className="w-full hidden md:block text-netflix-red text-sm font-medium">
                 {email && !valid ? <FontAwesomeIcon icon={faCircleXmark} className="mr-1" /> : ''}
