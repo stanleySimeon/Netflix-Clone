@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
@@ -39,8 +40,8 @@ export default function SignupPassword() {
         </Link>
         <Link to="/login" className="text-netflix-black md:text-xl font-medium hover:underline">Sign In</Link>
       </nav>
-      <div className="flex flex-col items-center h-screen mt-12 px-10 md:px-0">
-        <div className="flex flex-col justify-start items-start md:w-2/6">
+      <div className="flex flex-col items-center h-auto mt-12 pb-56 px-10 md:px-0">
+        <div className="flex flex-col justify-start items-start md:w-2/7">
           <div className="flex flex-col items-start justify-start w-full space-y-4">
             <span>
               <p className="text-md font-light text-gray-600 uppercase">
@@ -93,25 +94,29 @@ export default function SignupPassword() {
           </form>
         </div>
       </div>
-      <footer className="flex flex-col items-center justify-center border-t border-gray-500 py-4 px-2 md:px-12">
-        <p className="text-gray-500 text-sm font-light">
-          Questions? Call
-          {' '}
-          <span className="font-medium text-gray-800">0800-080-080</span>
-        </p>
-        <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 mt-4">
-          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">FAQ</Link>
-          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Help Center</Link>
-          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Terms of Use</Link>
-          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Privacy</Link>
-          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Cookie Preferences</Link>
-          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Corporate Information</Link>
-          <Link to="/" className="text-gray-500 text-sm font-light hover:underline">Contact Us</Link>
+      <footer className="flex flex-col items-start justify-center border-t border-gray-200 bg-gray-100 pt-8 pb-2px-2 md:px-16">
+        <div data-style="heading" className="pb-4 text-lg">
+          <Link to="/" className="text-gray-500 hover:underline">
+            Questions? Contact us.
+          </Link>
         </div>
-        <select name="language" id="language" className="w-32 mt-4 border border-gray-500 py-2 px-3 rounded-md focus:outline-none focus:ring-0">
-          <option value="English">English</option>
-          <option value="French">Spanish</option>
-        </select>
+        <div className="w-10/12">
+          <ul className="whitespace-nowrap grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-sm text-gray-500">
+            <li className=""><a role="link" data-uia="footer-link" title="FAQ" className="hover:underline" href="https://help.netflix.com/support/412">FAQ</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Help Center" className="hover:underline" href="https://help.netflix.com">Help Center</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Account" className="hover:underline" href="https://shopping.netflix.com/">Netflix Shop</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Terms of Use" className="hover:underline" href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Privacy" className="hover:underline" href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Cookie Preferences" className="hover:underline" href="/">Cookie Preferences</a></li>
+            <li className=""><a role="link" data-uia="footer-link" title="Corporate Information" className="hover:underline" href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+          </ul>
+        </div>
+        <div className="py-12 flex justify-start items-start">
+          <select id="" name="LanguageSelect" className="bg-netflix-black bg-opacity-50 text-netflix-white rounded">
+            <option lang="en" label="English" value="en">English</option>
+            <option lang="es" label="Español" value="es">Español</option>
+          </select>
+        </div>
       </footer>
     </div>
   );
