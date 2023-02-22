@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NetflixLogo from '../assets/01_Netflix_Logo/01_Netflix_Logo_RGB/Netflix_Logo_RGB.png';
 import popSignup from '../assets/images/pop_signup.AVIF';
 
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
+  const [navigate, setNavigate] = React.useState(false);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -18,6 +19,17 @@ export default function Login() {
     } else {
       password.type = 'password';
     }
+  };
+
+  useEffect(() => {
+    if (navigate) {
+      window.location.href = '/stream';
+    }
+  }, [navigate]);
+
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    setNavigate(true);
   };
 
   return (
@@ -40,7 +52,7 @@ export default function Login() {
               </button>
             </span>
             <span className="pt-6">
-              <button type="submit" className="w-full bg-netflix-red text-white py-4 px-4 rounded-md focus:outline-none">Sign In</button>
+              <button type="submit" className="w-full bg-netflix-red text-white py-4 px-4 rounded-md focus:outline-none" onClick={handleNavigate}>Sign In</button>
             </span>
             <div className="flex justify-between items-center text-gray-400 text-sm">
               <span className="flex justify-between items-center">
