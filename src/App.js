@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login';
 import SignupPassword from './components/SignupPassword';
 import Plan from './components/Plan';
+import Stream from './components/Stream';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignupPassword />} />
         <Route path="/plan" element={<Plan />} />
+        <Route path="/stream" element={<Stream />} />
       </Routes>
     </Router>
   );
