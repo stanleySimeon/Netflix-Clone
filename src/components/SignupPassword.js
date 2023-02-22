@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import NetflixLogo from '../assets/01_Netflix_Logo/01_Netflix_Logo_RGB/Netflix_Logo_RGB.png';
+import Plan from './Plan';
 
 export default function SignupPassword() {
   const [count, setCount] = React.useState(1);
@@ -99,10 +100,13 @@ export default function SignupPassword() {
             >
               Next
             </button>
+            <Plan
+              plan="Basic"
+            />
           </form>
         </div>
       </div>
-      <footer className="flex flex-col items-start justify-center border-t border-gray-200 bg-gray-100 pt-8 pb-2px-2 md:px-16">
+      <footer className="flex flex-col items-start justify-center border-t border-gray-200 bg-gray-100 pt-8 pb-2 px-4 md:px-16">
         <div data-style="heading" className="pb-4 text-lg">
           <Link to="/" className="text-gray-500 hover:underline">
             Questions? Contact us.
@@ -122,7 +126,7 @@ export default function SignupPassword() {
         <span className="flex justify-center items-center pl-4 my-8 bg-gray-50 border border-gray-500">
           <FontAwesomeIcon icon={faGlobe} className="text-gray-700" />
           <select
-            className="w-0 sm:w-full py-1 md:py-2 rounded border-none outline-none bg-transparent text-gray-500 border-transparent focus:border-transparent focus:ring-0"
+            className="w-full py-2 md:py-2 rounded border-none outline-none bg-transparent text-gray-500 border-transparent focus:border-transparent focus:ring-0"
             value={language}
             onChange={handleLanguageChange}
           >
