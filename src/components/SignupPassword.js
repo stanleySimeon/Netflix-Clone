@@ -3,12 +3,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import NetflixLogo from '../assets/01_Netflix_Logo/01_Netflix_Logo_RGB/Netflix_Logo_RGB.png';
 
 export default function SignupPassword() {
   const [count, setCount] = React.useState(1);
   const [getUserEmail, setUserEmail] = React.useState('');
   const [userPassword, setUserPassword] = React.useState([]);
+  const [language, setLanguage] = React.useState('English');
 
   const handleCount = (e) => {
     e.preventDefault();
@@ -30,6 +33,11 @@ export default function SignupPassword() {
     e.preventDefault();
     const password = document.getElementById('password').value;
     setUserPassword(password);
+  };
+
+  const handleLanguageChange = (e) => {
+    e.preventDefault();
+    setLanguage(e.target.value);
   };
 
   return (
@@ -111,12 +119,17 @@ export default function SignupPassword() {
             <li className=""><a role="link" data-uia="footer-link" title="Corporate Information" className="hover:underline" href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
           </ul>
         </div>
-        <div className="py-12 flex justify-start items-start">
-          <select id="" name="LanguageSelect" className="bg-netflix-black bg-opacity-50 text-netflix-white rounded">
-            <option lang="en" label="English" value="en">English</option>
-            <option lang="es" label="Español" value="es">Español</option>
+        <span className="flex justify-center items-center pl-4 my-8 bg-gray-50 border border-gray-500">
+          <FontAwesomeIcon icon={faGlobe} className="text-gray-700" />
+          <select
+            className="w-0 sm:w-full py-1 md:py-2 rounded border-none outline-none bg-transparent text-gray-500 border-transparent focus:border-transparent focus:ring-0"
+            value={language}
+            onChange={handleLanguageChange}
+          >
+            <option value="English">English</option>
+            <option value="Español">Español</option>
           </select>
-        </div>
+        </span>
       </footer>
     </div>
   );
