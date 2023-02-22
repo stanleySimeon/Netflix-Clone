@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import NetflixLogo from '../assets/01_Netflix_Logo/01_Netflix_Logo_RGB/Netflix_Logo_RGB.png';
-import Plan from './Plan';
 
 export default function SignupPassword() {
   const [count, setCount] = React.useState(1);
   const [getUserEmail, setUserEmail] = React.useState('');
   const [userPassword, setUserPassword] = React.useState([]);
   const [language, setLanguage] = React.useState('English');
+  const [navigate, setNavigate] = React.useState(false);
 
   const handleCount = (e) => {
     e.preventDefault();
@@ -34,6 +34,17 @@ export default function SignupPassword() {
     e.preventDefault();
     const password = document.getElementById('password').value;
     setUserPassword(password);
+  };
+
+  useEffect(() => {
+    if (navigate) {
+      window.location.href = '/plan';
+    }
+  }, [navigate]);
+
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    setNavigate(true);
   };
 
   const handleLanguageChange = (e) => {
@@ -95,14 +106,12 @@ export default function SignupPassword() {
                 (e) => {
                   handlePassword(e);
                   handleCount(e);
+                  handleNavigate(e);
                 }
               }
             >
               Next
             </button>
-            <Plan
-              plan="Basic"
-            />
           </form>
         </div>
       </div>
