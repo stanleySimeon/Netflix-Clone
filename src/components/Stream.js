@@ -1,28 +1,28 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovie } from '../redux/reducers/userReducer';
+import { getMovie } from '../redux/reducers/moviesReducer';
 
 export default function Stream() {
   const dispatch = useDispatch();
-  const movie = useSelector((state) => state.reducers);
+  const movies = useSelector((state) => state.movies) || [];
 
   useEffect(() => {
     dispatch(getMovie());
   }, [dispatch]);
 
+  console.log(movies);
+
   return (
     <div>
       <h1>Stream</h1>
       <div>
-        {movie.movie ? (
-          <div>
-            <h2>{movie.movie.title}</h2>
-            <p className="movie-description">{movie.movie.overview}</p>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.movie.backdropPath}`} alt={movie.movie.title} />
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )}
+        {
+          movies.map((movie) => (
+            <div key={movie.id}>
+              <h2>{movie.cast}</h2>
+            </div>
+          ))
+        }
       </div>
     </div>
   );
