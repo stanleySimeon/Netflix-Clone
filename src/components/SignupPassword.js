@@ -100,7 +100,7 @@ export default function SignupPassword() {
             </div>
             <Link to="/signup" className="text-lg font-light text-blue-600 hover:underline">Forgot your password?</Link>
             <button
-              type="submit"
+              type="button"
               className="w-full bg-netflix-red text-lg text-white font-medium py-4 px-3 mt-4 rounded-md hover:bg-netflix-red focus:outline-none focus:ring-0"
               onClick={
                 (e) => {
