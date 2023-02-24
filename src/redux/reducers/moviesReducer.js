@@ -4,17 +4,35 @@ const options = {
   method: 'GET',
   headers: {
     'X-RapidAPI-Key': '382a3edb79msh62116fd0a3dd3b9p1f55dcjsndaca5b928def',
-    'X-RapidAPI-Host': 'netflix54.p.rapidapi.com',
+    'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
   },
 };
 
 export const getMovie = () => async (dispatch) => {
-  const response = await fetch('https://netflix54.p.rapidapi.com/title/details/?ids=80057281&lang=en', options);
-  const data = await response.json();
-  dispatch({
-    type: GET_MOVIE,
-    payload: data,
-  });
+  fetch('https://imdb-top-100-movies.p.rapidapi.com/', options)
+    .then((response) => response.json())
+    .then((data) => {
+      const movies = [];
+      console.log(data);
+      data.forEach((movie) => {
+        movies.push({
+          title: movie.title,
+          year: movie.year,
+          description: movie.description,
+          image: movie.image,
+          genre: movie.genre,
+          rating: movie.rating,
+          thumbnail: movie.thumbnail,
+          trailer: movie.trailer,
+          director: movie.director,
+          writers: movie.writers,
+        });
+      });
+      dispatch({
+        type: GET_MOVIE,
+        payload: movies,
+      });
+    });
 };
 
 export const moviesReducer = (state = [], action) => {
