@@ -1,32 +1,18 @@
 const GET_MOVIE = 'GET_MOVIE';
 
-const options = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': '382a3edb79msh62116fd0a3dd3b9p1f55dcjsndaca5b928def',
-    'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
-  },
-};
-
 export const getMovie = () => async (dispatch) => {
-  fetch('https://imdb-top-100-movies.p.rapidapi.com/', options)
+  fetch('http://www.omdbapi.com/?i=tt3896198&apikey=a0e2a2d4')
     .then((response) => response.json())
     .then((data) => {
       const movies = [];
       console.log(data);
-      data.forEach((movie) => {
-        movies.push({
-          title: movie.title,
-          year: movie.year,
-          description: movie.description,
-          image: movie.image,
-          genre: movie.genre,
-          rating: movie.rating,
-          thumbnail: movie.thumbnail,
-          trailer: movie.trailer,
-          director: movie.director,
-          writers: movie.writers,
-        });
+      movies.push({
+        id: data.imdbID,
+        title: data.Title,
+        rating: data.imdbRating,
+        poster: data.Poster,
+        plot: data.Plot,
+        year: data.Year,
       });
       dispatch({
         type: GET_MOVIE,
