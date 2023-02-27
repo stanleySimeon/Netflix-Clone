@@ -5,7 +5,6 @@ export const getMovie = () => async (dispatch) => {
     .then((response) => response.json())
     .then((data) => {
       const movies = [];
-      console.log(data);
       movies.push({
         id: data.imdbID,
         title: data.Title,
