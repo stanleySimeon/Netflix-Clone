@@ -12,6 +12,7 @@ export const getMovie = () => async (dispatch) => {
         poster: data.Poster,
         plot: data.Plot,
         year: data.Year,
+        description: data.Plot,
       });
       dispatch({
         type: GET_MOVIE,
