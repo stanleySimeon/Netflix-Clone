@@ -20,6 +20,7 @@ export default function Stream() {
           <p>{movie.year}</p>
           <p>{movie.rating}</p>
           <p>{movie.plot}</p>
+          <button type="button">Play</button>
         </div>
       ))}
     </div>
