@@ -1,17 +1,17 @@
 const GET_MOVIE = 'GET_MOVIE';
 
-export const getMovie = () => async (dispatch) => {
-  fetch('http://www.omdbapi.com/?i=tt3896198&apikey=a0e2a2d4')
+export const getMovie = (query) => async (dispatch) => {
+  fetch(`https://api.tvmaze.com/search/shows?q=${query}`)
     .then((response) => response.json())
     .then((data) => {
       const movies = [];
-      movies.push({
-        id: data.imdbID,
-        title: data.Title,
-        rating: data.imdbRating,
-        poster: data.Poster,
-        plot: data.Plot,
-        year: data.Year,
+      data.forEach((movie) => {
+        movies.push({
+          id: movie.show.id,
+          title: movie.show.name,
+          image: movie.show.image ? movie.show.image.medium : 'https://static.tvmaze.com/images/no-img/no-img-portrait-text.png',
+          summary: movie.show.summary,
+        });
       });
       dispatch({
         type: GET_MOVIE,
