@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovie } from '../redux/reducers/moviesReducer';
+import { getMovie, searchMovie } from '../redux/reducers/moviesReducer';
 
 export default function Stream() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies[0]) || [];
-  const [query, setQuery] = useState('blade runner');
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
-    dispatch(getMovie(query));
-  }, [query, dispatch]);
+    dispatch(getMovie());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(searchMovie(query));
+  }, [dispatch, query]);
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
 
     if (e.target.value === '') {
-      setQuery('batman');
+      dispatch(getMovie());
     } else {
-      setQuery(e.target.value);
+      dispatch(searchMovie(e.target.value));
     }
+
+    e.preventDefault();
   };
 
   return (
@@ -29,13 +35,22 @@ export default function Stream() {
         id="search"
         placeholder="Search for a movie"
       />
-      <button type="button" onClick={handleSearch}>Search</button>
+      <button
+        type="button"
+        onClick={(e) => handleSearch(e)}
+        className="btn btn-primary"
+      >
+        Search
+      </button>
+
       {
         movies.map((movie) => (
-          <div key={movie.id} onChange={handleSearch}>
+          <div key={movie.id} className="movie">
             <h2>{movie.title}</h2>
             <img src={movie.image} alt={movie.title} />
             <p>{movie.summary}</p>
+            <p>{movie.rating}</p>
+            <p>{movie.year}</p>
           </div>
         ))
       }
