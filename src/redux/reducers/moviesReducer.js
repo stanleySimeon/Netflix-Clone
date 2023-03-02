@@ -1,16 +1,18 @@
 const GET_MOVIE = 'GET_MOVIE';
 
-export const getMovie = (query) => async (dispatch) => {
-  fetch(`https://api.tvmaze.com/search/shows?q=${query}`)
+export const getMovie = () => async (dispatch) => {
+  fetch('https://api.tvmaze.com/shows')
     .then((response) => response.json())
     .then((data) => {
       const movies = [];
       data.forEach((movie) => {
         movies.push({
-          id: movie.show.id,
-          title: movie.show.name,
-          image: movie.show.image ? movie.show.image.medium : 'https://static.tvmaze.com/images/no-img/no-img-portrait-text.png',
-          summary: movie.show.summary,
+          id: movie.id,
+          title: movie.name,
+          image: movie.image ? movie.image.original : movie.image,
+          summary: movie.summary,
+          rating: movie.rating.average,
+          year: movie.premiered,
         });
       });
       dispatch({
