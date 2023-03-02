@@ -1,11 +1,23 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovie, searchMovie } from '../redux/reducers/moviesReducer';
+import { getMovie } from '../redux/reducers/moviesReducer';
+import { searchMovie } from '../redux/reducers/searchReducer';
 
 export default function Stream() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies[0]) || [];
+  const search = useSelector((state) => state.search[0]) || [];
   const [query, setQuery] = useState('');
+
+  const updateView = () => {
+    if (query === '') {
+      dispatch(getMovie());
+    } else {
+      dispatch(searchMovie(query));
+    }
+  };
 
   useEffect(() => {
     dispatch(getMovie());
@@ -24,7 +36,7 @@ export default function Stream() {
       dispatch(searchMovie(e.target.value));
     }
 
-    e.preventDefault();
+    updateView();
   };
 
   return (
@@ -32,28 +44,40 @@ export default function Stream() {
       <h1>Stream</h1>
       <input
         type="text"
-        id="search"
-        placeholder="Search for a movie"
+        placeholder="Search"
+        value={query}
+        onChange={handleSearch}
       />
       <button
         type="button"
-        onClick={(e) => handleSearch(e)}
+        onClick={handleSearch}
         className="btn btn-primary"
       >
         Search
       </button>
-
-      {
-        movies.map((movie) => (
-          <div key={movie.id} className="movie">
-            <h2>{movie.title}</h2>
-            <img src={movie.image} alt={movie.title} />
-            <p>{movie.summary}</p>
-            <p>{movie.rating}</p>
-            <p>{movie.year}</p>
+      <div className="row">
+        {movies.map((movie) => (
+          <div className="col-md-4" key={movie.id}>
+            <div className="card mb-4 shadow-sm">
+              <img src={movie.image} alt={movie.title} />
+              <div className="card-body">
+                <p className="card-text">{movie.title}</p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-secondary"
+                    >
+                      View
+                    </button>
+                  </div>
+                  <small className="text-muted">{movie.year}</small>
+                </div>
+              </div>
+            </div>
           </div>
-        ))
-      }
+        ))}
+      </div>
     </div>
   );
 }
