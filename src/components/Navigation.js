@@ -29,7 +29,7 @@ const links = [
 
 export default function Navigation() {
   return (
-    <nav className="navbar bg-netflix-black flex justify-between items-center px-3 md:px-8 md:py-3">
+    <nav className="navbar bg-netflix-black flex justify-between items-center px-3 md:px-8 md:py-3 overflow-hidden">
       <div className="flex justify-center items-center space-x-12">
         <Link
           to="/stream"
@@ -39,8 +39,8 @@ export default function Navigation() {
         </Link>
         <ul className="flex justify-start items-center space-x-12">
           {
-            links.slice().map((link) => (
-              <li className="text-netflix-white decoration-none hover:text-gray-300" key={link.id}>
+            links.slice(4).map((link) => (
+              <li className="text-netflix-white decoration-none hover:text-gray-300 whitespace-nowrap" key={link.id}>
                 <Link to={link.to}>{link.text}</Link>
               </li>
             ))
