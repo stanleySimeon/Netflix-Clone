@@ -32,7 +32,7 @@ export default function Navigation() {
     <nav className="navbar bg-netflix-black flex justify-between items-center px-3 md:px-8 md:py-3">
       <div className="flex justify-center items-center space-x-12">
         <Link
-          to="/"
+          to="/stream"
           className="w-32"
         >
           <img src={NetflixLogo} alt="logo" />
