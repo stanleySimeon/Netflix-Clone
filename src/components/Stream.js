@@ -13,7 +13,7 @@ import FeaturedMovie from './FeaturedMovie';
 export default function Stream() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies[0] || []);
-  const featured = useSelector((state) => state.featured || null);
+  const featured = useSelector((state) => state.featured);
 
   useEffect(() => {
     dispatch(getMovie());
@@ -32,7 +32,7 @@ export default function Stream() {
           {
             featured && (
               <FeaturedMovie
-                movie={featured || {}}
+                movie={featured}
                 key={featured.id}
                 title={featured.title}
               />
