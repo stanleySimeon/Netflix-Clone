@@ -11,7 +11,7 @@ const FeaturedMovie = ({ movie }) => (
           {movie.title}
         </h2>
         <p className="text-xl md:text-2xl text-netflix-white mb-4">
-          {movie.description}
+          {movie.summary}
         </p>
         <div className="flex justify-center md:justify-start space-x-4">
           <button type="button" className="bg-netflix-white py-2 px-4 rounded-md font-bold">
@@ -36,7 +36,7 @@ FeaturedMovie.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
   }).isRequired,
 };
 
