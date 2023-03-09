@@ -11,7 +11,11 @@ const FeaturedMovie = ({ movie }) => (
           {movie.title}
         </h2>
         <p className="text-xl md:text-2xl text-netflix-white mb-4">
-          {movie.summary}
+          {movie.summary.split('<p>').join('').split('</p>').join('')
+            .split('<b>')
+            .join('')
+            .split('</b>')
+            .join('')}
         </p>
         <div className="flex justify-center md:justify-start space-x-4">
           <button type="button" className="bg-netflix-white py-2 px-4 rounded-md font-bold">
