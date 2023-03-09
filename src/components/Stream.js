@@ -10,7 +10,7 @@ import Navigation from './Navigation';
 import MovieCard from './MovieCard';
 import FeaturedMovie from './FeaturedMovie';
 
-const Stream = () => {
+export default function Stream() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies[0] || []);
   const featured = useSelector((state) => state.featured);
@@ -20,27 +20,31 @@ const Stream = () => {
   }, [dispatch]);
 
   const saveFeaturedMovie = (movie) => {
-    dispatch(saveFeatured(movie.id));
+    dispatch(saveFeatured(movie));
   };
 
   return (
     <>
       <Navigation />
-      <div className="bg-netflix-black px-3 md:px-8">
-        <h2 className="text-2xl font-bold mb-8">Popular Movies</h2>
-        <div className="flex flex-wrap -mx-4 bg-white">
-          {featured && (
-            <FeaturedMovie movie={featured} />
-          )}
-        </div>
-        <div className="flex flex-wrap -mx-4" onClick={() => saveFeaturedMovie(featured)}>
+      <div className="w-full">
+        {
+          featured && (
+            <FeaturedMovie
+              movie={featured}
+              summary={featured.summary}
+              saveFeaturedMovie={saveFeaturedMovie}
+            />
+          )
+        }
+      </div>
+      <div className="relative flex flex-col bg-netflix-black px-3 md:px-8">
+        <div className="flex flex-wrap -mx-4">
+          <h2 className="text-2xl font-bold mb-8">Popular Movies</h2>
           {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
+            <MovieCard movie={movie} key={movie.id} saveFeaturedMovie={saveFeaturedMovie} />
           ))}
         </div>
       </div>
     </>
   );
-};
-
-export default Stream;
+}
