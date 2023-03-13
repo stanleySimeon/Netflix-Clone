@@ -39,7 +39,7 @@ export default function Stream() {
       </div>
       <div className="relative flex flex-col bg-netflix-black px-3 md:px-8">
         <div className="flex flex-wrap -mx-4">
-          {/* <h2 className="text-2xl font-bold mb-8">Popular Movies</h2> */}
+          <h2 className="text-2xl font-bold mb-8">Popular Movies</h2>
           {movies.map((movie) => (
             <MovieCard movie={movie} key={movie.id} saveFeaturedMovie={saveFeaturedMovie} />
           ))}
