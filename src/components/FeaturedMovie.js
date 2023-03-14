@@ -7,7 +7,7 @@ const FeaturedMovie = ({ movie }) => (
   <div className="h-screen relative">
     <div className="w-full h-full flex items-center absolute bg-gradient-to-r from-[rgba(6,6,6,0.37)] to-[rgba(0,0,0,0.55)]">
       <div className="w-2/4 space-x-3 md:space-x-8 flex flex-col items-center md:items-start">
-        <h2 className="text-3xl md:text-5xl font-bold text-netflix-white mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold text-netflix-white mb-4 text-justify">
           {movie.title}
         </h2>
         <p className="text-lg md:text-xl text-netflix-white mb-4">
