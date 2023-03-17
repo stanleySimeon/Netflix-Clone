@@ -39,7 +39,7 @@ export default function Navigation() {
         </Link>
         <ul className="flex justify-start items-center space-x-12">
           {
-            links.slice(4).map((link) => (
+            links.slice().map((link) => (
               <li className="text-netflix-white decoration-none hover:text-gray-300 whitespace-nowrap" key={link.id}>
                 <Link to={link.to}>{link.text}</Link>
               </li>
