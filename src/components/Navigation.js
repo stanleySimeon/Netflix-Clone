@@ -27,6 +27,17 @@ const links = [
   },
 ];
 
+const focusLink = (e) => {
+  const link = e.target;
+  link.classList.add('text-netflix-red');
+};
+
+const blurLink = (e) => {
+  const link = e.target;
+
+  link.classList.remove('text-netflix-red');
+};
+
 export default function Navigation() {
   return (
     <nav className="navbar bg-netflix-black flex justify-between items-center px-3 md:px-8 md:py-3 overflow-hidden">
@@ -40,7 +51,7 @@ export default function Navigation() {
         <ul className="flex justify-start items-center space-x-12">
           {
             links.slice().map((link) => (
-              <li className="text-netflix-white decoration-none hover:text-gray-300 whitespace-nowrap" key={link.id}>
+              <li className="text-netflix-white decoration-none hover:text-gray-300 whitespace-nowrap" key={link.id} onFocus={focusLink} onBlur={blurLink}>
                 <Link to={link.to}>{link.text}</Link>
               </li>
             ))
