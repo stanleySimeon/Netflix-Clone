@@ -11,7 +11,7 @@ function MovieCard({ movie, saveFeaturedMovie }) {
   };
 
   return (
-    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-4 mb-8" onClick={handleClick}>
+    <div className="w-full" onClick={handleClick}>
       <div className="relative">
         <Carousel
           additionalTransfrom={0}
